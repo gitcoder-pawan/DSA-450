@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void mergesort(int ar[], int l,int r){
+    if (l<r){
+        int mid=l+(r-l)/2;
+        mergesort(ar, l, mid);
+        mergesort(ar, mid+1, r);
+        
+        int i=0, j=0, k=l;
+        
+        while(i<mid+1 && j<r){
+            if (ar[i]<ar[j]){
+                ar[k]=ar[i];
+                i++;
+            }
+            else{
+                ar[k]=ar[j];
+                j++;
+            }
+            k++;
+        }
+        
+        while(i<mid+1){
+            ar[k]=ar[i];
+            i++;
+            k++;
+        }
+        
+        while(j<r){
+            ar[k]=ar[j];
+            j++;
+            k++;
+        }
+    }
+    return;
+}
+
+int main() {
+    int n,k;
+    cin>>n>>k;
+    int ar[n];
+    for(int i=0; i<n; i++) cin>>ar[i];
+    mergesort(ar,0,n-1);
+    cout<<ar[k-1]<<endl;
+	return 0;
+}
