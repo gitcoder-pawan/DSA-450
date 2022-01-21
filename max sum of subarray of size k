@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int maxsum(int ar[], int n, int k ){
+    int ans=INT_MIN;
+    int i=0, sum=0; 
+    int j=k;
+    
+    for (int i=0; i<k; i++) sum+=ar[i] ;
+    ans= sum;
+    // cout<<"initla sum "<<sum<<endl;
+    while(j<n){
+        cout<<"i"<<i<<"j"<<j<<" ";
+    sum= sum+ar[j]-ar[i];
+        ans = max(ans, sum );
+        // cout<<"sum"<<sum<<"ans"<<ans<<endl;
+        j++;
+        i++;
+       
+    }
+    return ans;
+}
+int main() {
+	int n,k;
+	cin>>n>>k;
+	int ar[n];
+	
+	for (int i=0; i<n; i++) cin>>ar[i];
+	
+	cout<<"max sum is : "<<maxsum(ar,n,k)<<endl;
+	
+	return 0;
+}
