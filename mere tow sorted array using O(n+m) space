@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namepace std;
+
+class Solution{
+    public:
+    //Function to return the count of number of elements in union of two arrays.
+    int doUnion(int a[], int n, int b[], int m)  {
+        unordered_map<int, int> map;
+        // we need to assign map[ar[i]] = something , but if we dont pass anything it will automatically take value zero.
+        for( int i=0; i<n; i++) map[a[i]];
+        for( int i=0; i<m; i++) map[b[i]];
+        // for (auto x:map){
+        //     cout<<x.first<<" "<<x.second<<endl;
+        // }
+        return map.size();
+        
+    }
+};
+
+int main(){
+  int t;
+  cin>>t;
+  while(t--){
+    int n,m;
+    cin>>n>>m;
+    int a[n],b[m];
+    for(int i=0;i<n;i++) cin>>a[i];
+    for(int i=0; i<m;i++) cin>>b[i];
+    Solution obj;
+    cout<<obj.doUnion(a,n,b,m)<<"\n";
+  }
+  return 0;
+}
